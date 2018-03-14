@@ -1,0 +1,15 @@
+import paramiko
+
+ssh = paramiko.SSHClient()
+
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+ssh.connect('', port=22, username='', password= '')
+
+stdin, stdout, stderr = ssh.exec_command('sh ip int bri')
+
+output = stdout.readlines()
+
+type(output)
+
+print ('\n'.join(output))
